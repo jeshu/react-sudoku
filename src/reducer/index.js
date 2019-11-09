@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
 import AppDataReducer from "./AppDataReducer";
+import SudokuMatix from "./SudokuMatix";
 
 
 export default combineReducers({
-    AppData: AppDataReducer
+    appData: AppDataReducer,
+    sudoku: SudokuMatix
 })

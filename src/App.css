@@ -42,26 +42,40 @@
 
 .sudoko {
   display: inline-flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 360px;
   align-content: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: center;
 }
 .box9 {
-  height: 114px;
-  width: 114px;
+  width: 358px;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  border: 3px solid #999;
   align-content: space-evenly;
   justify-content: center;
+}
+.box9:nth-child(3), .box9:nth-child(6), .box9:nth-child(9) {
+  border-bottom: 5px solid #999;
+}
+.box:nth-child(3), .box:nth-child(6), .box:nth-child(9) {
+  border-right: 5px solid #999;
+}
+.box:nth-child(1){
+  border-left: 5px solid #999;
+} 
+.box9:nth-child(1) {
+  border-top: 5px solid #999;
 }
 .box.edited {
   background-color: #EFF;
 }
 .box.empty {
   background-color: #FFE;
+}
+.box.active {
+  background-color: #FEF ;
 }
 
 .numberPanel{
@@ -71,7 +85,7 @@
   justify-content: center;
   align-content: center;
   background: #999;
-  width: 356px;
+  width: 354px;
   height: 200px;
   margin-top: 10px;
   border: #999 2px solid;

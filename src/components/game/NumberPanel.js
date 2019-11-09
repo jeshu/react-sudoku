@@ -1,9 +1,9 @@
 import React from 'react'
 
-function NumberPanel() {
+function NumberPanel({setValue}) {
     const panelNums = "123456789".split("");
     const onValueSelected =(value)=>{
-        console.log(value);
+        setValue(value)
     }
     return (
         <div className='numberPanel'>{
