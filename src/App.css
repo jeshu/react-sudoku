@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.sudoko {
+  display: inline-flex;
+  flex-direction: row;
+  width: 360px;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.box9 {
+  height: 114px;
+  width: 114px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 3px solid #999;
+  align-content: space-evenly;
+  justify-content: center;
+}
+.box.empty {
+  background-color: #FFF;
+}
+.box {
+  height: 36px;
+  width: 36px;
+  border: 1px solid #999;
+  background: #EEF;
+  line-height: 2;
+}
