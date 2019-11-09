@@ -21,6 +21,25 @@
   color: #09d3ac;
 }
 
+.gameBody {
+  display: inline-flex;
+  flex-direction: column;
+}
+.game-options {
+  display: flex;
+  justify-items: stretch;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+.game-options .btn {
+  text-align: center;
+  display: inline-block;
+  width: 66px;
+  padding: 10px;
+  border: #FFF 2px solid;
+  background: #CEC;
+}
+
 .sudoko {
   display: inline-flex;
   flex-direction: row;
@@ -38,9 +57,35 @@
   align-content: space-evenly;
   justify-content: center;
 }
-.box.empty {
-  background-color: #FFF;
+.box.edited {
+  background-color: #EFF;
 }
+.box.empty {
+  background-color: #FFE;
+}
+
+.numberPanel{
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  background: #999;
+  width: 356px;
+  height: 200px;
+  margin-top: 10px;
+  border: #999 2px solid;
+}
+
+.numberPanel .number-box {
+  width: 114px;
+  height: 62px;
+  font-size: 24px;
+  line-height: 2.5;
+  background-color: #EEE;
+  border: #999 2px solid;
+}
+
 .box {
   height: 36px;
   width: 36px;

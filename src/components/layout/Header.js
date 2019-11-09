@@ -2,9 +2,9 @@ import React from 'react'
 
 function Header({title}) {
     return (
-        <h1>
+        <h2>
             CMB-Games | {title}
-        </h1>
+        </h2>
     )
 }
 
