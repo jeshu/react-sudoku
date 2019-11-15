@@ -69,10 +69,20 @@
   border-top: 5px solid #999;
 }
 .box.edited {
-  background-color: #EFF;
+  background-color: #FF9;
 }
 .box.empty {
-  background-color: #FFE;
+  background-color: #FFF;
+}
+.box.fixed {
+  font-weight: 600;
+}
+.box.solved {
+  background-color: #9E9;
+  font-weight: 600;
+}
+.box.incorrect {
+  background-color: #E9E ;
 }
 .box.active {
   background-color: #FEF ;

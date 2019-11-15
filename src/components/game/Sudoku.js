@@ -22,7 +22,6 @@ function Sudoku({matrix, setIdToUpdate, setValue, activeBoxId}) {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {matrix:state.sudoku.matrix, activeBoxId:state.sudoku.idToUpdate}
 }
 

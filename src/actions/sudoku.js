@@ -1,17 +1,13 @@
-import { solvePuzzle } from "../utils/sudoku";
+import { solvePuzzle, generateBoard } from "../utils/sudoku";
 
 export const setIdToUpdate = (id = "") => {
     return (dispatch, getState) => {
-        console.log(id);
-
         dispatch({ type: "setIdToUpdate", payload: id })
     }
 }
 
 export const setValue = (value = 0) => {
     return (dispatch, getState) => {
-        console.log(value);
-
         const sudokuMatrix = getState().sudoku.matrix;
         const id = getState().sudoku.idToUpdate;
         if (id !== "") {
@@ -43,23 +39,37 @@ export const reset = () => {
 }
 export const newGame = () => {
     return (dispatch, getState) => {
-
+        generateBoard(newBoard =>{
+            console.log(newBoard)
+            dispatch({ type: "valueToBeUpdated", payload: newBoard })
+        });
     }
 }
 export const validateGame = () => {
     return (dispatch, getState) => {
         let matrix = getState().sudoku.matrix;
         const values = solvePuzzle(matrix);
+        dispatch({ type: "setIdToUpdate", payload: "" })
+        if(values.length === 0) {
+            alert("no solution...");
+        }
         for (let i = 0; i < values.length; i++) {
             let pos = values[i];
             setTimeout(() => {
                 let matrix = getState().sudoku.matrix;
-                let newMatix = Object.assign([...matrix], {
-                    [pos[0]]: Object.assign([...matrix[pos[0]]], {
-                        [pos[1]]: "#" + pos[2]
-                    })
-                })
-                dispatch({ type: "valueToBeUpdated", payload: newMatix })
+                let r = pos[0], c = pos[1];
+                console.log();
+                let filledVal = matrix[r][c]
+                if(filledVal !== 0) {
+                    let fillVal = parseInt(filledVal.charAt(filledVal.length-1))
+                    let val = fillVal === pos[2] ?`#@${fillVal}`:`#!${fillVal}`;
+                    let newMatix = Object.assign([...matrix], {
+                        [pos[0]]: Object.assign([...matrix[pos[0]]], {
+                            [pos[1]]: val
+                        })
+                    });
+                    dispatch({ type: "valueToBeUpdated", payload: newMatix })
+                }
             }, 100 * i);
         }
     }
