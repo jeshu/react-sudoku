@@ -13,14 +13,14 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-            environment {
-                scannerHome = tool 'SonarQubeScanner'
-            }
             steps {
-                withSonarQubeEnv('SonarQubeServer') {
-                    sh 'sonar-scanner -Dsonar.projectKey=my-nodejs-project -Dsonar.sources=src -Dsonar.host.url=http://192.168.29.214:9000/ -Dsonar.login=AOECvkQnL1Mow0InaHszOdzz8oTp0ElgeFUgJl5tSIU='
-                }
-            }
+              script {
+                  scannerHome = tool 'SonarQubeScanner'// must match the name of an actual scanner installation directory on your Jenkins build agent
+              }
+              withSonarQubeEnv('<sonarqubeInstallation>') {// If you have configured more than one global server connection, you can specify its name as configured in Jenkins
+                sh "${scannerHome}/bin/sonar-scanner"
+              }
+          }
         }
         stage('Quality Gate') {
             steps {
