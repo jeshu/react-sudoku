@@ -13,12 +13,10 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-            steps {
-              def scannerHome = tool 'SonarScanner';
-              withSonarQubeEnv() {// If you have configured more than one global server connection, you can specify its name as configured in Jenkins
-                sh "${scannerHome}/bin/sonar-scanner"
-              }
-          }
+            def scannerHome = tool 'SonarScanner';
+            withSonarQubeEnv() {
+              sh "${scannerHome}/bin/sonar-scanner"
+            }
         }
         stage('Quality Gate') {
             steps {
